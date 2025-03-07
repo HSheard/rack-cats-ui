@@ -1,0 +1,9 @@
+:root{
+    --theme-blue-bright: #008DEB;
+    --theme-blue-light: #2080C0;
+    --theme-blue-medium: #326e96;
+
+    --theme-blue-dark: #36566B;
+    --theme-blue-darker: #2b3841;
+    --theme-blue-very-dark: #2B3033;
+}

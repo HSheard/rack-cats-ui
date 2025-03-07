@@ -1,2 +1,3 @@
-# rack-cats-ui
-rack cats category system UI
+#Rack cats UI
+to get started make sure to have node installed
+run UI with npm start command.

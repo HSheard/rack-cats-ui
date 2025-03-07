@@ -1,0 +1,12 @@
+.rack-logo{
+    flex-grow: 1;
+}
+
+.header{
+    display: flex;
+
+}
+
+.navbar{
+    flex-grow: 1;
+}
