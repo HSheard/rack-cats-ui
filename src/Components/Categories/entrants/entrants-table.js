@@ -13,6 +13,7 @@ function Entrants(props) {
 
     const clearFilters = () => {
         setFilteredEntrants([...props.entrants])
+        clearFilterElements()
     }
     return (
         <div>
@@ -81,14 +82,12 @@ function applyFilters(entrantsList) {
         })
     }
     return entrantsList.filter((e) => {
-        console.log(e.category)
-        console.log()
-        console.log("searchfilter=" + searchFilter)
         return filters.includes("Category " + e.category) && e.name.toLowerCase().includes(searchFilter.toLowerCase())
     })
 }
 
 function clearFilterElements(){
-    
+    document.getElementById("entrant-filters").querySelectorAll("input[type=checkbox]").forEach((checkbox, index)=>{checkbox.checked=false})
+    document.getElementById("name-search").value="";
 }
 export default Entrants;
