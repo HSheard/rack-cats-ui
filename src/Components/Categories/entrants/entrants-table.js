@@ -1,6 +1,21 @@
+import EntrantData from './entrant-data/entrant-data';
 import './entrants-table.css'
+import { useState } from "react";
 
 function Entrants(props) {
+    const [entrantsList, setEntrants] = useState(props.entrants)
+    const [filteredEntrants, setFilteredEntrants] = useState(props.entrants)
+    const applyFilters = ()=> {
+        console.log("apply filters begin:-------------")
+        console.log("start:"+filteredEntrants)
+        const filteredList = filteredEntrants.filter((e)=>{
+            return e.category==1;
+        })
+        console.log(filteredList)
+        setFilteredEntrants(e=>[...e, filteredList])
+        console.log("end:"+JSON.stringify(filteredEntrants))
+        console.log("apply filters end:-------------")
+    }
     return (
         <div>
             <div class="filter-container">
@@ -10,9 +25,9 @@ function Entrants(props) {
                 </div>
 
                 <div class="checkbox-group">
-                    <label><input type="checkbox" value="Category 1" class="category-filter" /> Category 1</label>
-                    <label><input type="checkbox" value="Category 2" class="category-filter" /> Category 2</label>
-                    <label><input type="checkbox" value="Category 3" class="category-filter" /> Category 3</label>
+                    <label><input type="checkbox" value="Category 1" class="category-filter" onChange={applyFilters}/> Category 1</label>
+                    <label><input type="checkbox" value="Category 2" class="category-filter" onChange={(e)=>{applyFilters2(e,props.entrants)}}/> Category 2</label>
+                    <label><input type="checkbox" value="Category 3" class="category-filter" onChange={handleChange}/> Category 3</label>
                     <label><input type="checkbox" value="Category 4" class="category-filter" /> Category 4</label>
                     <label><input type="checkbox" value="Category 5" class="category-filter" /> Category 5</label>
                     <label><input type="checkbox" value="Category 6" class="category-filter" /> Category 6</label>
@@ -29,14 +44,8 @@ function Entrants(props) {
                         </tr>
                     </thead>
                     <tbody>
-                            {props.entrants.map((entrant,key)=>{
-                                return(
-                                    <tr key={key}>
-                                        <td>{entrant.name}</td>
-                                        <td>{entrant.category}</td>
-                                    </tr>
-                                )
-                            })}
+                        <EntrantData entrant={filteredEntrants[0]}/>
+                        {filteredEntrants.map((entry, key)=>{return <EntrantData entrant={entry}/>})}
                     </tbody>
                 </table>
             </div>
@@ -44,4 +53,21 @@ function Entrants(props) {
     )
 }
 
+function applyFilters2(e, entrants){
+    console.log("filters applied")
+    entrants[1].name="ratdog"
+    console.log(entrants)
+    // setEntrants([
+    //     {name:"rat",category:5},
+    //     {name:"rat",category:1},
+    //     {name:"rat",category:2},
+    //     {name:"rat",category:2}
+    // ])
+}
+
+function handleChange(e){
+    console.log("handle change bruh")
+    console.log(e)
+    console.log(document.getElementsByClassName("category-filter"))
+}
 export default Entrants;
