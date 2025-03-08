@@ -3,36 +3,37 @@ import './entrants-table.css'
 import { useState } from "react";
 
 function Entrants(props) {
-    const [entrantsList, setEntrants] = useState(props.entrants)
     const [filteredEntrants, setFilteredEntrants] = useState(props.entrants)
-    const applyFilters = ()=> {
-        console.log("apply filters begin:-------------")
-        console.log("start:"+filteredEntrants)
-        const filteredList = filteredEntrants.filter((e)=>{
-            return e.category==1;
-        })
-        console.log(filteredList)
-        setFilteredEntrants(e=>[...e, filteredList])
-        console.log("end:"+JSON.stringify(filteredEntrants))
-        console.log("apply filters end:-------------")
+    const filterEntrants = () => {
+        const filteredList = applyFilters(props.entrants)
+        console.log("filtered: " + JSON.stringify(applyFilters(props.entrants)))
+        setFilteredEntrants([...filteredList])
+        console.log("end" + JSON.stringify(filteredEntrants))
+    }
+
+    const clearFilters = () => {
+        setFilteredEntrants([...props.entrants])
     }
     return (
         <div>
             <div class="filter-container">
                 <div class="searchbar">
-                                    <label for="name-search">Search by Name:</label>
-                <input type="text" id="name-search" placeholder="Type a name..." onkeyup="applyFilters()" />
+                    <label for="name-search">Search by Name:</label>
+                    <div id="search-input">
+                        <input type="text" id="name-search" placeholder="Type a name..." onChange={filterEntrants} />
+                        <button class="clear-button" onClick={clearFilters}>Clear Filters</button>
+                    </div>
                 </div>
 
-                <div class="checkbox-group">
-                    <label><input type="checkbox" value="Category 1" class="category-filter" onChange={applyFilters}/> Category 1</label>
-                    <label><input type="checkbox" value="Category 2" class="category-filter" onChange={(e)=>{applyFilters2(e,props.entrants)}}/> Category 2</label>
-                    <label><input type="checkbox" value="Category 3" class="category-filter" onChange={handleChange}/> Category 3</label>
-                    <label><input type="checkbox" value="Category 4" class="category-filter" /> Category 4</label>
-                    <label><input type="checkbox" value="Category 5" class="category-filter" /> Category 5</label>
-                    <label><input type="checkbox" value="Category 6" class="category-filter" /> Category 6</label>
-                    <label><input type="checkbox" value="Category 7" class="category-filter" /> Category 7</label>
-                    <label><input type="checkbox" value="Category 8" class="category-filter" /> Category 8</label>
+                <div class="checkbox-group" id="entrant-filters">
+                    <label><input type="checkbox" value="Category 1" class="category-filter" onChange={filterEntrants} /> Category 1</label>
+                    <label><input type="checkbox" value="Category 2" class="category-filter" onChange={filterEntrants} /> Category 2</label>
+                    <label><input type="checkbox" value="Category 3" class="category-filter" onChange={filterEntrants} /> Category 3</label>
+                    <label><input type="checkbox" value="Category 4" class="category-filter" onChange={filterEntrants} /> Category 4</label>
+                    <label><input type="checkbox" value="Category 5" class="category-filter" onChange={filterEntrants} /> Category 5</label>
+                    <label><input type="checkbox" value="Category 6" class="category-filter" onChange={filterEntrants} /> Category 6</label>
+                    <label><input type="checkbox" value="Category 7" class="category-filter" onChange={filterEntrants} /> Category 7</label>
+                    <label><input type="checkbox" value="Category 8" class="category-filter" onChange={filterEntrants} /> Category 8</label>
                 </div>
             </div>
             <div class="table-container">
@@ -44,8 +45,7 @@ function Entrants(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        <EntrantData entrant={filteredEntrants[0]}/>
-                        {filteredEntrants.map((entry, key)=>{return <EntrantData entrant={entry}/>})}
+                        {filteredEntrants.map((entry, key) => { return <EntrantData entrant={entry} /> })}
                     </tbody>
                 </table>
             </div>
@@ -53,21 +53,42 @@ function Entrants(props) {
     )
 }
 
-function applyFilters2(e, entrants){
-    console.log("filters applied")
-    entrants[1].name="ratdog"
-    console.log(entrants)
-    // setEntrants([
-    //     {name:"rat",category:5},
-    //     {name:"rat",category:1},
-    //     {name:"rat",category:2},
-    //     {name:"rat",category:2}
-    // ])
+function textChange(e, entrants) {
+    console.log("text has changed")
 }
 
-function handleChange(e){
+function handleChange(e) {
     console.log("handle change bruh")
     console.log(e)
     console.log(document.getElementsByClassName("category-filter"))
+}
+
+function applyFilters(entrantsList) {
+    const entrantFilters = document.getElementById("entrant-filters")
+    const checkBoxes = entrantFilters.querySelectorAll("input[type=checkbox]")
+    const searchFilter = document.getElementById("name-search").value
+    var filters = [];
+    checkBoxes.forEach(item => {
+        if (item.checked) {
+            console.log(item.value)
+            filters.push(item.value)
+        }
+    })
+
+    if (filters.length == 0) {
+        return entrantsList.filter((e) => {
+            return e.name.toLowerCase().includes(searchFilter.toLowerCase())
+        })
+    }
+    return entrantsList.filter((e) => {
+        console.log(e.category)
+        console.log()
+        console.log("searchfilter=" + searchFilter)
+        return filters.includes("Category " + e.category) && e.name.toLowerCase().includes(searchFilter.toLowerCase())
+    })
+}
+
+function clearFilterElements(){
+    
 }
 export default Entrants;

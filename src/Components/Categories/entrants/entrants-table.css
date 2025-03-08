@@ -59,3 +59,23 @@ tr:hover {
     display: flex;
     flex-direction: column;
 }
+
+.clear-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 1rem;
+}
+
+.clear-button:hover {
+    background-color: #575757;
+}
+
+.clear-button:active {
+    background-color: #666;
+}
