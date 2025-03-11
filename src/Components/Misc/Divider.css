@@ -1,4 +1,5 @@
 .divider {
   width: 1px;
-  background-color: var(--color-sub);
+  background-color: var(--color-alt);
+  height: 80%;
 }

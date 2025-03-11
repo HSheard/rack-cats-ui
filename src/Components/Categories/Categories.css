@@ -1,3 +1,159 @@
 .categories {
   padding: 10px;
 }
+
+.category-filter {
+  cursor: pointer;
+  user-select: none;
+  height: 20px;
+  transition: all;
+  transition-duration: 500ms;
+  background-color: var(--color-bg);
+  height: 100%;
+  width: 10%;
+  text-align: center;
+  align-content: center;
+  border-radius: 10px;
+}
+
+.category-filter:hover {
+  background-color: var(--color-alt);
+  box-shadow: var(--shadow-main);
+}
+
+.category-filter.active {
+  background-color: var(--color-highlight) !important;
+}
+
+.filter-label {
+  font-size: large;
+  margin-left: 1rem;
+}
+
+.table-container {
+  height: 100%; /* Parent container height */
+  width: 100%;
+  /* border: 2px solid var(--color-bg); */
+  overflow-y: scroll; /* Enable scrolling */
+  background-color: var(--color-bg);
+  transition: 100ms;
+}
+
+.entrants-table tr {
+  transition: 100ms;
+}
+
+.entrants-table td:nth-child(2n -1) {
+  width: 80%;
+}
+
+.entrants-table td:nth-child(2n) {
+  width: 20%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--color-main);
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-sub);
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-alt);
+  position: sticky; /* Keeps header visible during scroll */
+  top: 0;
+}
+
+tr:hover {
+  background-color: var(--color-sub);
+}
+
+.filter-container {
+  color: var(--color-main);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+}
+
+.filter-container input[type="text"] {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-alt);
+  color: var(--color-main);
+  width: 50%;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.checkbox-group {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+}
+.checkbox-group input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+.searchbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#search-input {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+#name-search {
+  height: 100%;
+  margin-block: auto;
+  width: fill;
+  outline: none;
+  transition: 100ms;
+}
+
+#name-search:active,
+#name-search:hover {
+  box-shadow: var(--shadow-main);
+}
+
+.clear-button {
+  background-color: var(--color-alt);
+  color: var(--color-main);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 1rem;
+  width: max-content;
+  text-wrap: nowrap;
+}
+
+.clear-button:hover {
+  background-color: var(--color-sub);
+  box-shadow: var(--shadow-main);
+}
+
+.clear-button:active {
+  background-color: var(--color-alt);
+}

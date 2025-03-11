@@ -7,7 +7,7 @@ function Categories() {
   console.log("DATALOADED: " + JSON.stringify(entrants));
 
   return (
-    <div class="categories">
+    <div className="categories">
       <Entrants entrants={entrants} />
     </div>
   );

@@ -1,20 +1,35 @@
-import './NavigationBar.css'
-import rackLogo from './rack-logo.png'
-function NavigationBar(){
-    return(
-        <nav class="navbar">
-        <div class="logo">
-            <img src={rackLogo} alt="Logo"/>
-            <span>Rack Cafe Player Categories</span>
-        </div>
-        <div class="menu">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#Login">Login</a>
-            <a href="#contact">Contact</a>
-        </div>
+import Divider from "../Misc/Divider";
+import Theme from "../Misc/Theme";
+import "./NavigationBar.css";
+function NavigationBar() {
+  return (
+    <nav className="navbar">
+      <div className="page-info">
+        <div className="logo" alt="Logo"></div>
+        <span>Player Categories</span>
+      </div>
+      <div className="menu">
+        <Divider />
+        <a className="page-navigate" draggable="false" href="#home">
+          Home
+        </a>
+        <Divider />
+        <a className="page-navigate" draggable="false" href="#about">
+          About
+        </a>
+        <Divider />
+        <a className="page-navigate" draggable="false" href="#Login">
+          Login
+        </a>
+        <Divider />
+        <a className="page-navigate" draggable="false" href="#contact">
+          Contact
+        </a>
+        <Divider />
+        <Theme />
+      </div>
     </nav>
-    )
+  );
 }
 
 export default NavigationBar;

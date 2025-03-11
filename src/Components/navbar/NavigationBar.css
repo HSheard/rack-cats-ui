@@ -10,32 +10,73 @@ body {
   padding: 0.5rem 1rem;
   height: 60px; /* Fixed navbar height */
 }
-.navbar .logo {
+.navbar .page-info {
   display: flex;
   align-items: center;
   height: 100%; /* Ensures the logo stays within the navbar height */
+  width: 50%;
+  justify-content: space-between;
 }
-.navbar .logo img {
+.navbar .page-info img {
   height: 100%; /* Makes the logo fill the height of the navbar */
   width: auto; /* Maintains the aspect ratio of the logo */
 }
-.navbar .logo span {
+.navbar .page-info span {
   color: var(--color-main);
   font-size: 1.5rem;
   font-weight: bold;
   margin-left: 0.5rem;
 }
+
+.navbar .logo {
+  width: 200px;
+  height: 100%;
+  max-height: 100%;
+  background-image: var(--logo-src);
+  background-size: cover;
+}
+
 .navbar .menu {
+  height: 100%;
   display: flex;
+  align-items: center;
+  width: 25%;
 }
 .navbar a {
   color: var(--color-main);
   text-decoration: none;
   padding: 0.5rem 1rem;
+  height: 100%;
+  align-content: center;
+  transition: 100ms;
+  width: 50%;
+  text-align: center;
 }
 .navbar a:hover {
   background-color: var(--color-sub);
-  border-radius: 5px;
+  box-shadow: var(--shadow-no-pop);
+}
+
+.page-navigate {
+  user-select: none;
+}
+
+.theme-button {
+  color: var(--color-main);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  align-content: center;
+  transition: 100ms;
+  width: 50%;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+.theme-button:hover {
+  background-color: var(--color-sub);
+  box-shadow: var(--shadow-no-pop);
 }
 @media (max-width: 768px) {
   .navbar .menu {

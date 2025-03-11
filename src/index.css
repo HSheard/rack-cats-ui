@@ -7,8 +7,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to bottom, var(--color-bg), var(--color-sub));
+  background: linear-gradient(to bottom, var(--color-sub), var(--color-bg));
   height: 100vh;
+  overflow: hidden;
 }
 
 code {

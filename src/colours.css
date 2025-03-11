@@ -1,7 +1,55 @@
-:root {
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-main: white;
+    --color-sub: #575757;
+    --color-bg: #333;
+    --color-alt: #444;
+    --color-active: #666;
+    --color-shadow: rgba(10, 10, 10, 0.5);
+    --color-highlight: rgba(24, 69, 110, 1);
+    --shadow-main: var(--color-shadow) 0px 10px 10px;
+    --shadow-no-pop: var(--color-shadow) 0px 10px 10px -10px;
+    --logo-src: url("./Images/rack-logo-inverted-clear.png");
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-main: black;
+    --color-sub: #a8a8a8;
+    --color-bg: #cccccc;
+    --color-alt: #bbbbbb;
+    --color-active: #999999;
+    --color-shadow: rgba(10, 10, 10, 0.5);
+    --color-highlight: rgb(72, 141, 206);
+    --shadow-main: var(--color-shadow) 0px 10px 10px;
+    --shadow-no-pop: var(--color-shadow) 0px 10px 10px -10px;
+    --logo-src: url("./Images/rack-logo-clear.png");
+  }
+}
+
+body[theme="Dark"] {
   --color-main: white;
   --color-sub: #575757;
   --color-bg: #333;
   --color-alt: #444;
   --color-active: #666;
+  --color-shadow: rgba(10, 10, 10, 0.5);
+  --color-highlight: rgba(24, 69, 110, 1);
+  --shadow-main: var(--color-shadow) 0px 10px 10px;
+  --shadow-no-pop: var(--color-shadow) 0px 10px 10px -10px;
+  --logo-src: url("./Images/rack-logo-inverted-clear.png");
+}
+
+body[theme="Light"] {
+  --color-main: black;
+  --color-sub: #a8a8a8;
+  --color-bg: #cccccc;
+  --color-alt: #bbbbbb;
+  --color-active: #999999;
+  --color-shadow: rgba(10, 10, 10, 0.5);
+  --color-highlight: rgb(72, 141, 206);
+  --shadow-main: var(--color-shadow) 0px 10px 10px;
+  --shadow-no-pop: var(--color-shadow) 0px 10px 10px -10px;
+  --logo-src: url("./Images/rack-logo-clear.png");
 }

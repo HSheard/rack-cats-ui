@@ -1,6 +1,6 @@
 import "./Divider.css";
 function Divider() {
-  return <div class="divider"></div>;
+  return <div className="divider"></div>;
 }
 
 export default Divider;
