@@ -1,7 +1,9 @@
-body{
-    background-color: red;
+body {
+  background-color: red;
 }
 
-.rack-cats-app{
-    height: 100%;
+.rack-cats-app {
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 }

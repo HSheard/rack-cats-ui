@@ -94,7 +94,7 @@ function Entrants(props) {
   );
 
   return (
-    <div>
+    <div className="entrants-container">
       <div className="filter-container">
         <div className="searchbar">
           {/* Small change but when using the for attrbute in react be sure to use htmlFor. Similarly use className instead of class as it's
