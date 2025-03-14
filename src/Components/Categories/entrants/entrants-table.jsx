@@ -48,32 +48,24 @@ function Entrants(props) {
     }
   };
 
-  // Fun little way to write each of your filters, massively overkill tbh but I just wanted to see if I could
-  // rather than stopping to think if I should. smh my head.
-  const filters = [
-    (filteredList) => {
-      return filteredList.filter((entrant) => {
-        return (
-          filteredCategories.includes(entrant.category) ||
-          !filteredCategories?.length
-        );
-      });
-    },
-    (filteredList) => {
-      return filteredList.filter((entrant) => {
-        return entrant.name.match(filteredName, "gm") || !filteredName?.length;
-      });
-    },
-  ];
 
   // Check all filters and update filtered entrants list
   const filterEntrants = () => {
     let filteredList = [...props.entrants];
 
-    filters.forEach((filterFunc) => {
-      filteredList = filterFunc(filteredList);
-      console.log(filteredList);
-    });
+    console.log(JSON.stringify(filteredCategories))
+    console.log(JSON.stringify(filteredName))
+    if (filteredCategories.length == 0) {
+      filteredList = filteredList.filter((e) => {
+          return e.name.toLowerCase().includes(filteredName.toLowerCase())
+      })
+  }
+  else{
+    filteredList = filteredList.filter((e)=>{
+      return e.name.toLowerCase().includes(filteredName.toLowerCase()) && filteredCategories.includes(e.category)
+    })
+  }
+    // console.log("Filtered list is "+JSON.stringify(filteredList));
 
     setFilteredEntrants([...filteredList]);
   };
@@ -90,7 +82,7 @@ function Entrants(props) {
       filterEntrants();
     },
     // Dependency array
-    [filteredCategories, filteredName]
+    [filteredName, filteredCategories]
   );
 
   return (
