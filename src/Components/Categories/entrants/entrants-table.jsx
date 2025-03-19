@@ -2,6 +2,7 @@ import Divider from "../../Misc/Divider";
 import EntrantData from "./entrant-data/entrant-data";
 import React, { useEffect, useState } from "react";
 import Filter from "./Filter";
+import { sortCategories } from "../Categories";
 
 function Entrants(props) {
   const [filteredEntrants, setFilteredEntrants] = useState(props.entrants);
@@ -57,17 +58,17 @@ function Entrants(props) {
     console.log(JSON.stringify(filteredName))
     if (filteredCategories.length == 0) {
       filteredList = filteredList.filter((e) => {
-          return e.name.toLowerCase().includes(filteredName.toLowerCase())
+          return e.name.toLowerCase().startsWith(filteredName.toLowerCase())
       })
   }
   else{
     filteredList = filteredList.filter((e)=>{
-      return e.name.toLowerCase().includes(filteredName.toLowerCase()) && filteredCategories.includes(e.category)
+      return e.name.toLowerCase().startsWith(filteredName.toLowerCase()) && filteredCategories.includes(e.category)
     })
   }
     // console.log("Filtered list is "+JSON.stringify(filteredList));
 
-    setFilteredEntrants([...filteredList]);
+    setFilteredEntrants([...sortCategories(filteredList)]);
   };
 
   const clearFilters = () => {

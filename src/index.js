@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import RackCatsApp from './Components/rack-cats-app';
+import Header from './Components/Header/header';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter([
+  {  path: '/',  element:<RackCatsApp/>},
+  { path: '/About'}
+]);
 root.render(
   <React.StrictMode>
-    <RackCatsApp />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 
