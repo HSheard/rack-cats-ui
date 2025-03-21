@@ -58,14 +58,14 @@ function Entrants(props) {
     console.log(JSON.stringify(filteredName))
     if (filteredCategories.length == 0) {
       filteredList = filteredList.filter((e) => {
-          return e.name.toLowerCase().startsWith(filteredName.toLowerCase())
+        return e.name.toLowerCase().startsWith(filteredName.toLowerCase())
       })
-  }
-  else{
-    filteredList = filteredList.filter((e)=>{
-      return e.name.toLowerCase().startsWith(filteredName.toLowerCase()) && filteredCategories.includes(e.category)
-    })
-  }
+    }
+    else {
+      filteredList = filteredList.filter((e) => {
+        return e.name.toLowerCase().startsWith(filteredName.toLowerCase()) && filteredCategories.includes(e.category)
+      })
+    }
     // console.log("Filtered list is "+JSON.stringify(filteredList));
 
     setFilteredEntrants([...sortCategories(filteredList)]);

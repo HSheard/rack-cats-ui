@@ -1,6 +1,7 @@
 import Divider from "../Misc/Divider";
 import Theme from "../Misc/Theme";
 import "./NavigationBar.css";
+import { Link } from "react-router-dom";
 function NavigationBar() {
   return (
     <nav className="navbar">
@@ -9,10 +10,18 @@ function NavigationBar() {
         <span>Player Categories</span>
       </div>
       <div className="menu">
-        <Divider />
-        <a className="page-navigate" draggable="false" href="#home">
+        <Link to="/">
+        Home
+        </Link>
+        <Divider/>
+        <Link to="/about">About</Link>
+        <Divider/>
+        <Link to="/contact">Contact</Link>
+        <Divider/>
+        <Link toi="/login">Login</Link>
+        {/* <a className="page-navigate" draggable="false" href="#home">
           Home
-        </a>
+          </a>
         <Divider />
         <a className="page-navigate" draggable="false" href="#about">
           About
@@ -24,7 +33,7 @@ function NavigationBar() {
         <Divider />
         <a className="page-navigate" draggable="false" href="#contact">
           Contact
-        </a>
+        </a> */}
         <Divider />
         <Theme />
       </div>
