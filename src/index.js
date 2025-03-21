@@ -7,13 +7,15 @@ import Header from './Components/Header/header';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Categories from './Components/Categories/Categories';
 import About from './Components/About/About';
+import Contact from './Components/Contact/Contact';
+import Login from './Components/Login/login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
   { path: '/', element: <Categories /> },
   { path: '/about', element: <About /> },
-  { path: '/login', element: <h1>Login page</h1> },
-  { path: '/contact', element: <h1>Contact page</h1> }
+  { path: '/login', element: <Login/> },
+  { path: '/contact', element: <Contact/> }
 ]);
 root.render(
   <React.StrictMode>

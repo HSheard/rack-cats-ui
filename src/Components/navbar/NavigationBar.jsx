@@ -18,7 +18,7 @@ function NavigationBar() {
         <Divider/>
         <Link to="/contact">Contact</Link>
         <Divider/>
-        <Link toi="/login">Login</Link>
+        <Link to="/login">Login</Link>
         {/* <a className="page-navigate" draggable="false" href="#home">
           Home
           </a>
