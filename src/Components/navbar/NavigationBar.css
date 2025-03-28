@@ -78,9 +78,25 @@ body {
   background-color: var(--color-sub);
   box-shadow: var(--shadow-no-pop);
 }
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .navbar .menu {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+  }
+  .theme-btn{
+    display: none;
+  }
+  .login-btn{
+    display: none;
+  }
+  .logo{
+    display: none;
+  }
+  .navbar .page-info {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ensures the logo stays within the navbar height */
+    width: 70%;
+    justify-content: space-between;
   }
 }

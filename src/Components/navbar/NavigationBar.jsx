@@ -18,25 +18,24 @@ function NavigationBar() {
         <Divider/>
         <Link to="/contact">Contact</Link>
         <Divider/>
-        <Link to="/login">Login</Link>
-        {/* <a className="page-navigate" draggable="false" href="#home">
-          Home
-          </a>
+        <div class="login-btn">
+                  <Link to="/login">Login</Link>
+        </div>
+
         <Divider />
-        <a className="page-navigate" draggable="false" href="#about">
-          About
-        </a>
-        <Divider />
-        <a className="page-navigate" draggable="false" href="#Login">
-          Login
-        </a>
-        <Divider />
-        <a className="page-navigate" draggable="false" href="#contact">
-          Contact
-        </a> */}
-        <Divider />
-        <Theme />
+        <div class="theme-btn">
+                  <Theme/>
+        </div>
       </div>
+      {/* <div className="mobile-menu">
+        <Link to="/">
+        Home
+        </Link>
+        <Divider/>
+        <Link to="/about">About</Link>
+        <Divider/>
+        <Link to="/contact">Contact</Link>
+      </div> */}
     </nav>
   );
 }
